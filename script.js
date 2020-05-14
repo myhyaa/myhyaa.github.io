@@ -19,15 +19,16 @@ numbers.forEach((number)=>{
     updateScreen(currentNumber)
   })
 })
-const inputOperator=(operator)=>{
-  prevNumber=currentNumber
-  calculationOperator=operator
-  currentNumber=''
-}
+
 const operators=document.querySelectorAll(".operator")
 operators.forEach((operator)=>{
   operator.addEventListener("click",(event)=>{
     inputOperator(event.target.value)
   })
 })
+const inputOperator=(operator)=>{
+  prevNumber=currentNumber
+  calculationOperator=operator
+  currentNumber=''
+}
 
