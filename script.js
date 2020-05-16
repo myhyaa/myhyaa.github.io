@@ -71,16 +71,16 @@ clearBtn.addEventListener('click',()=>{
   clearAll()
   updateScreen(currentNumber)
 })
-inputDecimal=(dot)=>{
-  if(currentNumber.includes('.')){
-    return
-  }
-  currentNumber+=dot
-}
+
 const decimal=document.querySelector('.decimal')
 
 decimal.addEventListener('click',(event)=>{
   inputDecimal(event.target.value)
   updateScreen(currentNumber)
 })
-
+inputDecimal=(dot)=>{
+  if(currentNumber.includes('.')){
+    return
+  }
+  currentNumber+=dot
+}
