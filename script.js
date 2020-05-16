@@ -30,4 +30,44 @@ const inputOperator=(operator)=>{
   calculationOperator=operator
   currentNumber=''
 }
+const equalSign=document.querySelector('.equal-sign')
+
+equalSign.addEventListener('click',()=>{
+  calculate()
+  updateScreen(currentNumber)
+})
+
+const calculate=()=>{
+  let result=''
+  switch(calculationOperator){
+    case '+':
+      result=parseInt(prevNumber)+parseInt(currentNumber)
+      break
+    case '-':
+      result=prevNumber-currentNumber
+      break
+    case '*':
+      result=prevNumber*currentNumber
+      break
+     case '/':
+      result=prevNumber/currentNumber
+      break
+     default:
+      return
+  }
+  currentNumber=result
+  calculationOperator=''
+}
+const clearAll=()=>{
+  prevNumber=''
+  calculationOperator=''
+  currentNumber='0'
+}
+const clearBtn=document.querySelector('.all-clear')
+
+clearBtn.addEventListener('click',()=>{
+  clearAll()
+  updateScreen(currentNumber)
+})
+
 
