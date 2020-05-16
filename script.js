@@ -26,9 +26,11 @@ operators.forEach((operator)=>{
   })
 })
 const inputOperator=(operator)=>{
-  prevNumber=currentNumber
+  if(calculationOperator===''){  
+    prevNumber=currentNumber
+  }
   calculationOperator=operator
-  currentNumber=''
+  currentNumber='0'
 }
 const equalSign=document.querySelector('.equal-sign')
 
@@ -41,7 +43,7 @@ const calculate=()=>{
   let result=''
   switch(calculationOperator){
     case '+':
-      result=parseInt(prevNumber)+parseInt(currentNumber)
+      result=parseFloat(prevNumber)+parseFloat(currentNumber)
       break
     case '-':
       result=prevNumber-currentNumber
@@ -69,5 +71,16 @@ clearBtn.addEventListener('click',()=>{
   clearAll()
   updateScreen(currentNumber)
 })
+inputDecimal=(dot)=>{
+  if(currentNumber.includes('.')){
+    return
+  }
+  currentNumber+=dot
+}
+const decimal=document.querySelector('.decimal')
 
+decimal.addEventListener('click',(event)=>{
+  inputDecimal(event.target.value)
+  updateScreen(currentNumber)
+})
 
